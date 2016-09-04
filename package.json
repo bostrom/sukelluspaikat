@@ -1,0 +1,72 @@
+{
+  "name": "sukelluspaikat",
+  "description": "A small webapp for mapping dive sites in Finland and the world.",
+  "version": "0.0.1",
+  "author": "Fredrik Boström",
+  "license": "ISC",
+  "main": "bin/www",
+  "private": true,
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "browserify-ngannotate",
+      "envify"
+    ]
+  },
+  "browser": {
+    "restangular": "./node_modules/restangular/dist/restangular.min.js"
+  },
+  "browserify-shim": {
+    "restangular": {
+      "depends": [
+        "angular",
+        "lodash:_"
+      ],
+      "exports": "null"
+    }
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-google-maps": "^2.3.4",
+    "bluebird": "^3.4.6",
+    "body-parser": "~1.15.1",
+    "browserify": "^13.1.0",
+    "browserify-middleware": "^7.0.0",
+    "browserify-ngannotate": "^2.0.0",
+    "browserify-shim": "^3.8.12",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
+    "envify": "^3.4.1",
+    "express": "~4.13.4",
+    "lodash": "^4.15.0",
+    "mongoose": "^4.6.0",
+    "morgan": "~1.7.0",
+    "pug": "^2.0.0-beta6",
+    "restangular": "^1.5.2",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bostrom/sukelluspaikat.git"
+  },
+  "keywords": [
+    "diving",
+    "dive",
+    "divesite",
+    "sukellus",
+    "sukelluspaikka",
+    "sukelluspaikat",
+    "angular",
+    "node",
+    "mongodb"
+  ],
+  "bugs": {
+    "url": "https://github.com/bostrom/sukelluspaikat/issues"
+  },
+  "homepage": "https://github.com/bostrom/sukelluspaikat#readme"
+}

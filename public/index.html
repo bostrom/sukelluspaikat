@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="sukelluspaikat">
+<head>
+  <title>Sukelluspaikat</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body ng-controller="MainCtrl">
+  <h1>Sukelluspaikat</h1>
+
+  <ul>
+    <li ng-repeat="location in locations track by location._id">
+      {{location.name}} ({{location.pos[1]}}, {{location.pos[0]}})
+    </li>
+  </ul>
+
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+    <ui-gmap-markers
+      models="locations"
+      idKey="'_id'"
+      coords="'pos'">
+
+    </ui-gmap-markers>
+  </ui-gmap-google-map>
+
+  <script src="bundle.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>
