@@ -2,7 +2,7 @@ var browserify = require('browserify-middleware');
 var express = require('express');
 var router = express.Router();
 
-router.get('/bundle.js', browserify('./public/javascripts/application.js', {
+router.get('/bundle.js', browserify('./public/js/application.js', {
   cache: true,
   precompile: true
 }));
