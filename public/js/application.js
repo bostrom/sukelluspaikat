@@ -4,6 +4,10 @@ var lodash = require('lodash');
 var ngSimpleLogger = require('angular-simple-logger');
 var ngGoogleMaps = require('angular-google-maps');
 
+var css = require('../css/style.css');
+console.log(css);
+
+
 var app = angular.module('sukelluspaikatApp', ['restangular', 'uiGmapgoogle-maps'])
   .config(function (RestangularProvider, uiGmapGoogleMapApiProvider) {
     RestangularProvider.setBaseUrl('/api');
@@ -12,4 +16,8 @@ var app = angular.module('sukelluspaikatApp', ['restangular', 'uiGmapgoogle-maps
       libraries: 'weather,geometry,visualization'
     });
   })
-  .controller('MainController', require('app/main-ctrl'));
+  .controller('MapController', require('app/map-ctrl'))
+  .controller('LocationInfoController', require('app/location-info-ctrl'))
+  .service('LocationService', require('app/location-service'))
+  ;
+

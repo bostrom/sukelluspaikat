@@ -2,25 +2,24 @@
 <html ng-app="sukelluspaikatApp">
 <head>
   <title>Sukelluspaikat</title>
-  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body ng-controller="MainController">
+<body>
   <h1>Sukelluspaikat</h1>
 
-  <ul>
-    <li ng-repeat="location in locations track by location._id">
-      {{location.name}} ({{location.pos[1]}}, {{location.pos[0]}})
-    </li>
-  </ul>
+  <div ng-controller="MapController">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+      <ui-gmap-markers
+        models="locations"
+        idKey="'_id'"
+        coords="'pos'"
+        click="markerClick">
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
+  </div>
 
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-    <ui-gmap-markers
-      models="locations"
-      idKey="'_id'"
-      coords="'pos'">
-
-    </ui-gmap-markers>
-  </ui-gmap-google-map>
+  <div id="location-info" ng-controller="LocationInfoController" ng-show="locations.active">
+    <h2>{{locations.active.name}}</h2>
+  </div>
 
   <script src="bundle.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
