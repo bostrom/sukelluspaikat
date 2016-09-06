@@ -6,6 +6,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// var webpack = require('webpack');
+// var webpackDevMiddleware = require('webpack-dev-middleware');
+// var webpackHotMiddleware = require('webpack-hot-middleware');
+// var webpackConfig = require('./webpack.dev.config');
+// var compiler = webpack(webpackConfig);
+
 var routes = require('./routes/index');
 var locations = require('./routes/locations');
 
@@ -14,6 +20,18 @@ var app = express();
 // connect to database
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT + '/sukelluspaikat');
+
+// app.use(webpackDevMiddleware(compiler, {
+//   publicPath: webpackConfig.output.publicPath,
+//   stats: {
+//     colors: true
+//   }
+// }));
+
+// app.use(webpackHotMiddleware(compiler, {
+//   log: console.log
+// }));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
